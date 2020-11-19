@@ -29,6 +29,15 @@ class BaseElement(object):
         element.click()
         return None
 
+    @property
     def text(self):
         text = self.web_element.text
         return text
+
+    def input_text(self, text):
+        self.web_element.send_keys(text)
+        return None
+
+    def attribute(self, atr_name):
+        self.web_element.get_attribute(atr_name)
+        return None
