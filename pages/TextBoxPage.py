@@ -1,19 +1,16 @@
 from pages.BaseElement import BaseElement
+from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
+from pages.Locator import Locator
 
-class TextBoxPage: 
-    def __init__(self, driver):
-        self.driver = driver
-        self.url = 'https://demoqa.com/text-box'
+class TextBoxPage(BasePage): 
 
-    def go(self):
-        self.driver.get(self.url)
+    url = 'https://demoqa.com/text-box'
 
     @property
     def submitBtn(self):
-        locator = (By.ID, 'submit')
+        locator = Locator(by = By.ID, value = 'submit')
         return BaseElement(
             driver=self.driver,
-            by=locator[0],
-            value=locator[1]
+            locator = locator
         )
