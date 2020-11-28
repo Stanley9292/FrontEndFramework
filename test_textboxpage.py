@@ -6,10 +6,17 @@ from pages.TextBoxPage import TextBoxPage
 browser = webdriver.Chrome()
 
 
-# 
-page = TextBoxPage(driver=browser)
-page.go() 
-assert page.submitBtn.text == 'Submit'
-page.submitBtn.click()
-browser.quit()
+# # 
+# page = TextBoxPage(driver=browser)
+# page.go() 
+# assert page.submitBtn.text == 'Submit'
+# page.submitBtn.click()
+# browser.quit()
+
+def test_submitButton():
+    page = TextBoxPage(driver=browser)
+    page.go() 
+    assert page.submitBtn.text == 'Submit'
+    page.submitBtn.click()
+    browser.quit()
 
