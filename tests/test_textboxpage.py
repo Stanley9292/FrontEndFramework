@@ -1,28 +1,31 @@
+import unittest
 from selenium import webdriver
-# import sys 
-# sys.path.append('../')
-# sys.path.insert(1, 'workspace\FrontEndFramework\pages')
+from pytest import mark
 from pages.BaseElement import BaseElement
 from pages.TextBoxPage import TextBoxPage
 import time
 
-# Test setup
-browser = webdriver.Chrome()
+@mark.textboxpage
+class TextBoxPageTests():
 
+    def setup(self):
+        self.browser = webdriver.Chrome()
+        self.page = TextBoxPage(driver=self.browser)
+        self.page.go()
+        time.sleep(3)
 
-# # 
-# page = TextBoxPage(driver=browser)
-# page.go() 
-# assert page.submitBtn.text == 'Submit'
-# page.submitBtn.click()
-# browser.quit()
+    @mark.submit
+    @mark.smoke
+    def test_submitButton(self):
+        # actual =  self.page.submitBtn.text
+        # self.assertEqual(actual, 'Submit')
 
-def test_submitButton():
-    page = TextBoxPage(driver=browser)
-    page.go() 
-    time.sleep(3)
-    # assert page.submitBtn.text == 'Submit'
-    page.submitBtn.find()
-    page.submitBtn.click()
-    # browser.quit()
+        self.page.submitBtn.find()
+        self.page.submitBtn.click()
+
+    def test_labels(self):
+        pass
+
+    def teardown(self):
+        self.browser.quit()
 
