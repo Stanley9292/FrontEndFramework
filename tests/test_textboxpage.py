@@ -6,9 +6,9 @@ from pages.TextBoxPage import TextBoxPage
 import time
 
 @mark.textboxpage
-class TextBoxPageTests():
+class TextBoxPageTests(unittest.TestCase):
 
-    def setup(self):
+    def setUp(self):
         self.browser = webdriver.Chrome()
         self.page = TextBoxPage(driver=self.browser)
         self.page.go()
@@ -17,8 +17,8 @@ class TextBoxPageTests():
     @mark.submit
     @mark.smoke
     def test_submitButton(self):
-        # actual =  self.page.submitBtn.text
-        # self.assertEqual(actual, 'Submit')
+        actual =  self.page.submitBtn.text
+        self.assertEqual(actual, 'Submit')
 
         self.page.submitBtn.find()
         self.page.submitBtn.click()
