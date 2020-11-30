@@ -28,6 +28,7 @@ class BaseElement(object):
                 locator=self.locator
             ))
         self.web_element = element
+        # scroll down the element to be found
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         return None
 
