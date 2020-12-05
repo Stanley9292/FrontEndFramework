@@ -16,17 +16,15 @@ class CheckBoxPageTests(unittest.TestCase):
         time.sleep(3)
         
     def test_homeCheckbox(self):
-        # import pdb; pdb.set_trace()
-        # self.page.homeCheckbox.find()
         self.page.homeCheckbox.click()
-
         self.page.nodeBtn.click()
 
-        expected = ['home' , 'desktop', 'notes', 'commands']
+        expected = ['home' , 'desktop', 'notes', 'commands', 'documents', 'workspace', 
+                'react', 'angular', 'veu', 'office', 'public', 'private', 'classified',
+                'general', 'downloads', 'wordFile', 'excelFil']
         
-        import pdb; pdb.set_trace()
-        actual = self.page.elementsCliked.findElementsByCSS()
-        self.assertEqual(actual, expected)
+        actualHome = self.page.isChecked
+        self.assertEqual(actualHome, expected)
 
     def teardown(self):
         self.browser.quit()
