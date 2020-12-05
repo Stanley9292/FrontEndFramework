@@ -44,7 +44,6 @@ class CheckBoxPage(BasePage):
         textInside = []
         for i in range(len(names)):
             val = value.replace('name', names[i])
-            print(val)
             locator = Locator(by = By.XPATH, 
                             value = val)
             element =  BaseElement(

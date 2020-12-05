@@ -21,7 +21,7 @@ class CheckBoxPageTests(unittest.TestCase):
 
         expected = ['home' , 'desktop', 'notes', 'commands', 'documents', 'workspace', 
                 'react', 'angular', 'veu', 'office', 'public', 'private', 'classified',
-                'general', 'downloads', 'wordFile', 'excelFil']
+                'general', 'downloads', 'wordFile', 'excelFile']
         
         actualHome = self.page.isChecked
         self.assertEqual(actualHome, expected)
