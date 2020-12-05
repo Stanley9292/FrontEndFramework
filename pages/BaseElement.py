@@ -24,7 +24,7 @@ class BaseElement(object):
     def find(self):
         
         element = WebDriverWait(
-            self.driver, 10).until(EC.visibility_of_element_located(
+            self.driver, 1).until(EC.visibility_of_element_located(
                 locator=self.locator
             ))
         self.web_element = element
