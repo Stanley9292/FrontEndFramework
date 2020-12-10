@@ -9,9 +9,13 @@ import time
 class TextBoxPageTests(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome()
-        self.page = TextBoxPage(driver=self.browser)
+        self.page = TextBoxPage(driver=TextBoxPageTests.browser)
         self.page.go()
+
+    @classmethod
+    def setUpClass(cls):
+        super(TextBoxPageTests, cls).setUpClass()
+        cls.browser = webdriver.Chrome()
         
     @mark.submit
     @mark.smoke
