@@ -7,3 +7,6 @@ class BasePage(object):
 
     def go(self):
         self.driver.get(self.url)
+
+    def quit(self):
+        self.driver.quit()
