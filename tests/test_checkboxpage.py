@@ -69,6 +69,6 @@ class CheckBoxPageTests(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 
-    def teardown(self):
+    def tearDown(self):
         self.browser.quit()
 
