@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from pytest import mark
+from pytest import fixture
 from pages.BaseElement import BaseElement
 from pages.TextBoxPage import TextBoxPage
 import time
@@ -16,7 +17,12 @@ class TextBoxPageTests(unittest.TestCase):
     def setUpClass(cls):
         super(TextBoxPageTests, cls).setUpClass()
         cls.browser = webdriver.Chrome()
-        
+
+    @classmethod
+    def tearDownClass(cls):
+        super(TextBoxPageTests, cls).tearDownClass()
+        cls.browser.quit()
+    
     @mark.submit
     @mark.smoke
     def test_submitButton(self):
@@ -62,9 +68,3 @@ class TextBoxPageTests(unittest.TestCase):
 
         actualPermanentAdr = self.page.permanentAdrOutput.text
         self.assertEqual(actualPermanentAdr, 'Permananet Address :Baba Novac')
-
-        # import pdb; pdb.set_trace()
-
-    def teardown(self):
-        self.browser.quit()
-
