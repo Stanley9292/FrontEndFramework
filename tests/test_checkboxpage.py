@@ -6,6 +6,7 @@ from pages.BaseElement import BaseElement
 from pages.CheckBoxPage import CheckBoxPage
 import time
 
+
 @mark.checkboxpage
 class CheckBoxPageTests(unittest.TestCase):
 
@@ -14,15 +15,15 @@ class CheckBoxPageTests(unittest.TestCase):
         self.page = CheckBoxPage(driver=self.browser)
         self.page.go()
         time.sleep(3)
-        
+
     @mark.homeCheckbox
     def test_homeCheckbox(self):
         self.page.homeCheckbox.click()
         self.page.nodeBtn.click()
 
-        expected = ['home' , 'desktop', 'notes', 'commands', 'documents', 'workspace', 
-                'react', 'angular', 'veu', 'office', 'public', 'private', 'classified',
-                'general', 'downloads', 'wordFile', 'excelFile']
+        expected = ['home', 'desktop', 'notes', 'commands', 'documents', 'workspace',
+                    'react', 'angular', 'veu', 'office', 'public', 'private', 'classified',
+                    'general', 'downloads', 'wordFile', 'excelFile']
         actual = self.page.isChecked
         self.assertEqual(actual, expected)
 
@@ -51,8 +52,8 @@ class CheckBoxPageTests(unittest.TestCase):
         self.page.desktopCheckbox.click()
         self.page.documentsCheckbox.click()
 
-        expected = ['desktop', 'notes', 'commands', 'documents', 'workspace', 'react', 
-                'angular', 'veu', 'office', 'public', 'private', 'classified', 'general']
+        expected = ['desktop', 'notes', 'commands', 'documents', 'workspace', 'react',
+                    'angular', 'veu', 'office', 'public', 'private', 'classified', 'general']
         actual = self.page.isChecked
         self.assertEqual(actual, expected)
 
@@ -68,7 +69,5 @@ class CheckBoxPageTests(unittest.TestCase):
         actual = self.page.isChecked
         self.assertEqual(actual, expected)
 
-
     def tearDown(self):
         self.browser.quit()
-
