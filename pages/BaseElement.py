@@ -24,7 +24,7 @@ class BaseElement(object):
     def find(self):
         
         element = WebDriverWait(
-            self.driver, 1).until(EC.visibility_of_element_located(
+            self.driver, 4).until(EC.visibility_of_element_located(
                 locator=self.locator
             ))
         self.web_element = element
@@ -50,5 +50,10 @@ class BaseElement(object):
         return None
 
     def attribute(self, atr_name):
-        self.web_element.get_attribute(atr_name)
-        return None
+        attribute = self.web_element.get_attribute(atr_name)
+        return attribute
+
+    @property
+    def is_checkbox_selected(self):
+        result = self.web_element.is_selected
+        return result
