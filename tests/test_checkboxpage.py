@@ -24,7 +24,7 @@ class CheckBoxPageTests(unittest.TestCase):
         expected = ['home', 'desktop', 'notes', 'commands', 'documents', 'workspace',
                     'react', 'angular', 'veu', 'office', 'public', 'private', 'classified',
                     'general', 'downloads', 'wordFile', 'excelFile']
-        actual = self.page.isChecked
+        actual = self.page.isChecked(expected)
         self.assertEqual(actual, expected)
 
     @mark.selectFolder
@@ -33,7 +33,7 @@ class CheckBoxPageTests(unittest.TestCase):
         self.page.desktopCheckbox.click()
 
         expected = ['desktop', 'notes', 'commands']
-        actual = self.page.isChecked
+        actual = self.page.isChecked(expected)
         self.assertEqual(actual, expected)
 
     @mark.selectFile
@@ -43,7 +43,7 @@ class CheckBoxPageTests(unittest.TestCase):
         self.page.notesCheckbox.click()
 
         expected = ['notes']
-        actual = self.page.isChecked
+        actual = self.page.isChecked(expected)
         self.assertEqual(actual, expected)
 
     @mark.selectMultipleFolders
@@ -54,7 +54,7 @@ class CheckBoxPageTests(unittest.TestCase):
 
         expected = ['desktop', 'notes', 'commands', 'documents', 'workspace', 'react',
                     'angular', 'veu', 'office', 'public', 'private', 'classified', 'general']
-        actual = self.page.isChecked
+        actual = self.page.isChecked(expected)
         self.assertEqual(actual, expected)
 
     @mark.selectMultipleFiles
@@ -66,7 +66,7 @@ class CheckBoxPageTests(unittest.TestCase):
         self.page.wordFileCheckbox.click()
 
         expected = ['notes', 'wordFile']
-        actual = self.page.isChecked
+        actual = self.page.isChecked(expected)
         self.assertEqual(actual, expected)
 
     def tearDown(self):

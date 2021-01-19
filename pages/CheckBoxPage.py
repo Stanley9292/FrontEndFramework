@@ -90,15 +90,11 @@ class CheckBoxPage(BasePage):
             locator = locator
         )
 
-    @property
-    def isChecked(self):
-        names = ['home' , 'desktop', 'notes', 'commands', 'documents', 'workspace', 
-                'react', 'angular', 'veu', 'office', 'public', 'private', 'classified',
-                'general', 'downloads', 'wordFile', 'excelFile']
+    def isChecked(self, expected_list):
         value = '//span[contains(text(),"name")]'
         textInside = []
-        for i in range(len(names)):
-            val = value.replace('name', names[i])
+        for i in range(len(expected_list)):
+            val = value.replace('name', expected_list[i])
             try:
                 locator = Locator(by = By.XPATH, 
                                 value = val)
