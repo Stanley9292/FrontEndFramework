@@ -5,7 +5,6 @@ from pytest import fixture
 from pages.BaseElement import BaseElement
 from pages.ButtonPage import ButtonPage
 import time
-import pdb
 
 @mark.buttonpage
 class ButtonPageTests(unittest.TestCase):
@@ -25,17 +24,18 @@ class ButtonPageTests(unittest.TestCase):
         cls.browser.quit()
 
     
-    # def test_double_click(self):
-    #     # self.page.doubleClickBtn.double_click
-    #     # self.page.doubleClickBtn.double_click
-    #     # time.sleep(4)
+    def test_double_click(self):
+        self.page.doubleClickBtn.double_click
+
+        actual = self.page.doubleClickMsg.text
+        self.assertEqual(actual, 'You have done a double click')
 
    
-    # def test_right_click(self):
-    #     pdb.set_trace()
-    #     self.page.rightClickBtn.click()
-    #     self.page.rightClickBtn.right_click
-    #     time.sleep(4)
+    def test_right_click(self):
+        self.page.rightClickBtn.right_click
+
+        actual = self.page.rightClickMsg.text
+        self.assertEqual(actual, 'You have done a right click')
 
    
     def test_click_me(self):

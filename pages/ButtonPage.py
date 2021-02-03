@@ -10,8 +10,8 @@ class ButtonPage(BasePage):
 
     @property
     def doubleClickBtn(self):
-        locator = Locator(by = By.CSS_SELECTOR, 
-                        value = '#doubleClickBtn')
+        locator = Locator(by = By.XPATH, 
+                        value = '//*[@id="doubleClickBtn"]')
         return BaseElement(
             driver=self.driver,
             locator = locator

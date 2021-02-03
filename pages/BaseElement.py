@@ -41,14 +41,14 @@ class BaseElement(object):
         return None
 
     @property
-    def double_click(self):
+    def double_click(self):    
         element = WebDriverWait(
             self.driver, 10).until(EC.element_to_be_clickable(
                 locator=self.locator
             ))
-        self.web_element = element
         actions = ActionChains(self.driver)
-        actions.double_click(element)
+        self.web_element = element
+        actions.double_click(element).perform()
         return None
 
     @property
@@ -59,7 +59,7 @@ class BaseElement(object):
             ))
         # self.web_element = element
         actions = ActionChains(self.driver)
-        actions.context_click(self.web_element)
+        actions.context_click(element).perform()
         return None
 
     @property
