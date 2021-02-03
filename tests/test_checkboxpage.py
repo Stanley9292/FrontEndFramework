@@ -14,7 +14,6 @@ class CheckBoxPageTests(unittest.TestCase):
         self.browser = webdriver.Chrome()
         self.page = CheckBoxPage(driver=self.browser)
         self.page.go()
-        time.sleep(3)
 
     @mark.homeCheckbox
     def test_homeCheckbox(self):

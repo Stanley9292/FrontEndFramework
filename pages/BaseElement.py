@@ -41,6 +41,28 @@ class BaseElement(object):
         return None
 
     @property
+    def double_click(self):
+        element = WebDriverWait(
+            self.driver, 10).until(EC.element_to_be_clickable(
+                locator=self.locator
+            ))
+        self.web_element = element
+        actions = ActionChains(self.driver)
+        actions.double_click(element)
+        return None
+
+    @property
+    def right_click(self):
+        element = WebDriverWait(
+            self.driver, 10).until(EC.element_to_be_clickable(
+                locator=self.locator
+            ))
+        # self.web_element = element
+        actions = ActionChains(self.driver)
+        actions.context_click(self.web_element)
+        return None
+
+    @property
     def text(self):
         text = self.web_element.text
         return text
