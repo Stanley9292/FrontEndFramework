@@ -39,17 +39,18 @@ class RadioButtonPageTests(unittest.TestCase):
         self.page.yesLabel.click()
 
         actual = self.page.resultText.text
-        self.assertEqual(actual, 'Yes')
+        assert actual == 'Yes'
+
 
     @mark.smoke
     def test_pressImpressive(self):
         self.page.impressiveLabel.click()
 
         actual = self.page.resultText.text
-        self.assertEqual(actual, 'Impressive')
+        assert actual == 'Impressive'
 
     @mark.smoke
     def test_noIsDisabled(self):
         actual = self.page.noBtn.attribute('class')
         expected = 'disabled'
-        self.assertTrue(expected in  actual)
+        assert expected in actual
